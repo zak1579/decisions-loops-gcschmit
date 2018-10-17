@@ -12,7 +12,7 @@ public class Notes
     {
         // model a coin flip; 1: heads, 0: tails
         int coinFlip = (int)(Math.random() * 2);
-        
+
         /*
          * if statement
          *  Statements are executed if the conditional expression
@@ -27,7 +27,7 @@ public class Notes
         {
             System.out.println("Coin is heads!");
         }
-        
+
         /*
          * { } are not required for a single statement.
          *      However, they are always a good idea.
@@ -35,8 +35,8 @@ public class Notes
          */
         if(coinFlip == 0)
             System.out.println("Coin is tails!");
-            System.out.println("Better luck next time...");
-        
+        System.out.println("Better luck next time...");
+
         /*
          * if-else statement
          *  else block is executed if the condition for the if
@@ -51,10 +51,10 @@ public class Notes
             System.out.println("Coin is tails!");
             System.out.println("Better luck next time...");
         }
-        
+
         // simulate the roll of a four-sided die [1-4]
         int dieRoll = (int)(Math.random() * 4) + 1;
-        
+
         /*
          * if-else if-else statement
          *  In Java, "else if" is used instead of "elif" like Python
@@ -76,7 +76,7 @@ public class Notes
             System.out.println("rolled a 4");
         }
     }
-    
+
     public static boolean doublesAreEqual(double num1, double num2)
     {
         /*
@@ -89,7 +89,7 @@ public class Notes
          *      value).
          */
         final double EPSILON = 1e-14;
-        
+
         if(Math.abs(num1 - num2) < EPSILON)
         {
             return true;
@@ -98,22 +98,83 @@ public class Notes
         {
             return false;
         }
-        
+
         // don't have to use an if statement
         //return (Math.abs(num1 - num2) < EPSILON);
     }
-    
+
     public static void stringExample()
     {
         Scanner s = new Scanner(System.in);
         System.out.print("Enter two strings: ");
         String str1 = s.next();
         String str2 = s.next();
+
+        /*
+         * The equality operator (==) returns true if the two variables
+         *      (e.g., str1 and str2) contain the same value. For
+         *      objects, including Strings, this means they contain
+         *      the same reference. That is, they refer to the same
+         *      object in memory, not that two Strings have the
+         *      same sequence of characters.
+         */
+        if(str1 == str2)
+        {
+            System.out.println("string references are equal");
+        }
+        else
+        {
+            System.out.println("string references are not equal");
+        }
         
+        /*
+         * The equals method returns true if the two objects
+         *      referenced by the variables are "equal". What
+         *      equals means is defined by that class. For Strings,
+         *      it means that the two objects have the same sequence
+         *      of characters.
+         */
+        if(str1.equals(str2))
+        {
+            System.out.println("strings are equal");
+        }
+        else
+        {
+            System.out.println("strings are not equal");
+        }
         
+        /*
+         * We will determine which string comes first lexographically
+         *      using the compareTo method of the String class.
+         *  
+         *  compareTo returns an int:
+         *      0:      if the strings are equal (same sequence of
+         *                  characters)
+         *      < 0:    if str1 < str2 lexographically
+         *      > 0:    if str1 > str2 lexographically
+         */
+        int result = str1.compareTo(str2);
+        String firstStr = null;
+        
+        if(result < 0)
+        {
+            firstStr = str1;
+        }
+        else if(result > 0)
+        {
+            firstStr = str2;
+        }
+        
+        if(firstStr != null)
+        {
+            System.out.println("The first string is: " + firstStr);
+            System.out.println("Its length is: " + firstStr.length());
+        }
+        else
+        {
+            System.out.println("strings are equal");
+        }
     }
 }
-
-
 
 
