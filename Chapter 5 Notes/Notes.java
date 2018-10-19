@@ -193,12 +193,21 @@ public class Notes
          *      If the left operand is true, the right operand
          *      will not be evaluated because the OR operation
          *      is already true.
+         *  
+         *  This may result in a bug, if the first word entered is
+         *      "kiwi", we will never read the second word from
+         *      the stream, which may result in unexpected behavior
+         *      later.
          */
         System.out.print("Enter your two favorite fruits: ");
         if(s.next().equals("kiwi") || s.next().equals("kiwi"))
         {
             System.out.println("Kiwi is one of my favorite fruits too!");
         }
+        
+        System.out.print("Enter your favorite ice cream flavor: ");
+        String flavor = s.next();
+        System.out.println("Favorite flavor: " + flavor); // could print a fruit
         
         
     }
