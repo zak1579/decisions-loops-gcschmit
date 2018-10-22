@@ -207,6 +207,117 @@ public class Notes
         String flavor = s.next();
         System.out.println("Favorite flavor " + flavor ); // could print a fruit
     }
+    
+    public static String getStudentClass(int gradeNumber)
+    {
+        /*
+         * switch statement
+         *      Another conditional decision statement (like if
+         *      statement). Preferred when evaluating several
+         *      *discrete* values. Can be used for byte, short, char,
+         *      int primitives types. It can also be used for
+         *      enumerations and String objects.
+         *      
+         *  The condition is evaluated, the flow of execution jumps
+         *      to the case that matches.
+         */
+        String studentClass = "";
+        
+        switch(gradeNumber)
+        {
+            case 9:
+            {
+                studentClass = "freshman";
+                
+                /*
+                 * break causes the flow of execution to leave the
+                 *      switch. (Without a break, the flow of
+                 *      execution continues into the next case.)
+                 */
+                break;
+            }
+            
+            case 10:
+            {
+                studentClass = "sophomore";
+                break;
+            }
+            
+            case 11:
+            {
+                studentClass = "junior";
+                break;
+            }
+            
+            case 12:
+            {
+                studentClass = "senior";
+                break;
+            }
+            
+            /*
+             * By leaving out the break, multiple cases can run
+             *      the same code.
+             */
+            case 6:
+            case 7:
+            case 8:
+            {
+                studentClass = "junior high";
+                break;
+            }
+            
+            /*
+             * default matches everything not matched by one of
+             *      the cases
+             */
+            default:
+            {
+                studentClass = "elementary";
+                break;
+            }
+        }
+        
+        return studentClass;
+    }
+    
+    public static void assignmentOperatorExample()
+    {
+        /*
+         * augmented assignment operators: +=, -=, *=, /=, %=
+         *  These are same as in Python.
+         *  Perform the specified mathematical operation and then
+         *      assign the resulting value.
+         */
+        int x = 7;
+        int y = 7;
+        int z = 7;
+        
+        x = x + 1;
+        y += 1;
+        z++;
+        
+        System.out.println(" x = " + x + "; y = " + y + "; z = " + z);
+        
+        /*
+         * post increment/decrement operators
+         *  equivalent to adding/subtracting 1
+         *  return the value before performing the
+         *      increment/decrement
+         */
+        int a = 7;
+        int b = a++;
+        System.out.println("a = " + a + "; b = " + b); // a = 8; b = 7
+        
+        /*
+         * pre increment/decrement operators
+         *  return the value after performing the
+         *      increment/decrement
+         */
+        int c = 7;
+        int d = ++c;
+        System.out.println("c = " + c + "; d = " + d); // c = 8; d = 8
+    }
 }
 
 
