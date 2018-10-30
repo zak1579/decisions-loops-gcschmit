@@ -15,14 +15,13 @@ public class CommonLoopAlgorithms
         int num = 0;
         double value = 0;
         System.out.println("Continue entering numbers (enter a letter to end the loop): ");
-        do {
-            if (s.hasNextDouble() == false){
-                break;
-            }
+        while (s.hasNextDouble() == true)
+        {
             value = s.nextDouble();
             sum += value;
             num ++;
-        } while (s.hasNextDouble() == true);
+            System.out.println("Continue entering numbers (enter a letter to end the loop): ");
+        }
 
         return sum/num;
     }
@@ -35,7 +34,23 @@ public class CommonLoopAlgorithms
      */
     public static int countMatches()
     {
-        
+        Scanner s = new Scanner(System.in);
+        int count = 0;
+        int input = 0;
+        while (true)
+        {
+            System.out.print("Enter an integer:(enter 'e' to end)");
+            if (s.hasNextInt() ==false)
+            {
+                break;
+            }
+            input = s.nextInt();  
+            if (input >100)
+            {
+                count++;
+            }
+        }
+        return count;
     }
 
     /*
@@ -49,7 +64,7 @@ public class CommonLoopAlgorithms
         Scanner s= new Scanner(System.in);
         int x=0;
         System.out.print("Enter a string: ");
-        do
+        while (true)
         {
             String str= s.next();
             if (str.length()>5)
@@ -59,7 +74,7 @@ public class CommonLoopAlgorithms
 
             x+=1;
         }
-        while (0==0);
+        
         return x;
     }
 
@@ -131,12 +146,12 @@ public class CommonLoopAlgorithms
     public static int compareAdjacent()
     {
         Scanner s = new Scanner (System.in);
-
-        int currentValue = -999999999;
-        int previousValue = 999999999;
+        System.out.print("Enter a series of integers (letter to quit): ");
+        // assume the user enters at least two integers
+        int currentValue = s.nextInt();
+        int previousValue = s.nextInt();
         do
         {
-            System.out.print("Enter an integer (letter to quit): ");
             if (s.hasNextInt() == false)
             {
                 currentValue = 0;
