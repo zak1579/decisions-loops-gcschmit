@@ -78,7 +78,6 @@ public class CommonLoopAlgorithms
             {
                 count++;
             }
-
         }
         while(str.length()<5);
         return count;
@@ -104,7 +103,6 @@ public class CommonLoopAlgorithms
                 System.out.println("Number is not in range [0,100). Try again");
                 next = last; // Undo this loop's itteration
                 last = -1; // Make sure last != next
-                continue; // Skip this loop
             }
         }
 
@@ -120,7 +118,8 @@ public class CommonLoopAlgorithms
     {
         boolean i;
         Scanner s = new Scanner(System.in);
-        int max = 0;
+        System.out.print("Enter a value: ");
+        int max = s.nextInt();
         int value = 0;
         do{
             System.out.print("Enter a number (End with a letter): ");
@@ -171,7 +170,8 @@ public class CommonLoopAlgorithms
     public static String compareAdjacent()
     {
         Scanner s = new Scanner(System.in);
-        int lastValue = 374097829; //nobody can ever guess this
+        // assume the user enters at least two numbers
+        int lastValue = s.nextInt();
         int value = 0;
         System.out.print("Enter integers (enter a letter to end): ");
         do
