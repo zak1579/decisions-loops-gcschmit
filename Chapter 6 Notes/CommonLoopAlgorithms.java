@@ -16,9 +16,9 @@ public class CommonLoopAlgorithms
         double average = 0;
         while(true)
         {
+            System.out.print("Enter a number (letter to exit): ");
             if (s.hasNextInt())
             {
-                System.out.print("Enter a number (letter to exit): ");
                 sum += s.nextInt();
                 average = (double) sum/count;
                 count++;
@@ -38,6 +38,22 @@ public class CommonLoopAlgorithms
      */
     public static int countMatches()
     {
+        Scanner s = new Scanner(System.in);
+        System.out.print("input a list of numbers (or a letter to stop)");
+        int aboveTotal = 0;
+        do
+        {
+            int value = s.nextInt();
+            if(value > 100)
+            {
+                aboveTotal++;
+            }
+        }
+        while(s.hasNextInt());
+
+        System.out.println(aboveTotal);
+
+        return aboveTotal;
     }
 
     /*
@@ -51,19 +67,14 @@ public class CommonLoopAlgorithms
         Scanner s = new Scanner(System.in);
         int numWords = 0;
         System.out.print("Enter a series of words separated by whitespace: ");
-        do
+        while(true)
         {
-            /*
-             * Challenge: finding a way to know if we are out of words
-             * Solution: Using a do loop (fixed the problem accidentally)
-             */ 
             if(s.next().length() > 5)
             {
                 break;
             }
             numWords++;
         }
-        while(s.hasNext());
         return numWords;
     }
 
@@ -96,12 +107,6 @@ public class CommonLoopAlgorithms
             if(value < 0 || value > 100)
             {
                 System.out.println("\"" + value + "\" is not a positive integer less than 100; try again.");
-
-                continue;
-            }
-            else
-            {
-                break;
             }
         }
         while(value < 0 || value > 100);
@@ -117,6 +122,29 @@ public class CommonLoopAlgorithms
      */
     public static int findMax() 
     {
+        Scanner s = new Scanner(System.in);
+        boolean x = true;
+        System.out.print("enter your first number: ");
+        int max = s.nextInt();
+        do
+        {
+            System.out.print("enter another number or a letter to quit: ");
+
+            x = s.hasNextInt();
+            if(x == false)
+            {
+                continue;
+            }
+            int value = s.nextInt();
+            if(value > max)
+            {
+                max = value;
+            }
+
+        }
+
+        while (x == true);
+        return max;
     }
 
     /*
@@ -126,6 +154,30 @@ public class CommonLoopAlgorithms
      */
     public static int findMin()
     {
+        Scanner s = new Scanner(System.in);
+        boolean x = true;
+        System.out.print("enter your first number: ");
+        int min = s.nextInt();
+        do
+        {
+            System.out.print("enter another number or a letter to quit: ");
+
+            x = s.hasNextInt();
+            if(x == false)
+            {
+                continue;
+            }
+            int value = s.nextInt();
+            if(value < min)
+            {
+                min = value;
+            }
+
+        }
+
+        while (x == true);
+        return min;
+
     }
 
     /*
@@ -136,5 +188,30 @@ public class CommonLoopAlgorithms
      */
     public static int compareAdjacent()
     {
+        Scanner s = new Scanner(System.in);
+
+        int int1;
+        int int2 = 0;
+        int count = 1;
+
+        do
+        {
+            System.out.println("Enter an integer: ");
+            int1 = s.nextInt();
+
+            if (int1 == 0 && count == 1)
+            {
+                count++;
+                continue;
+            }
+            if (int1 == int2)
+            {
+                break;
+            }
+            count++;
+            int2 = int1;
+        }
+        while(int1 == int2);
+        return int2;
     }
 }
